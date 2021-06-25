@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> // Задача 1
+        function array(x) {
+
+            switch (x) {
+                case 'first':
+                    let arr1 = new Array();
+                    document.getElementById('1').innerText = 'Создан пустой массив';
+                    break;
+
+                case 'second':
+                    let arr2 = ['Яблоко', 'Апельсин', 'Слива'];
+                    document.getElementById('1').innerText = arr2.join(', ');
+                    break;
+
+                case 'third':
+                    let arr3 = [];
+                    var str = 'Числа от 1 до 10: ';
+                    for (let index = 0; index < 10; index++)
+                        arr3[index] = index + 1;
+
+                    document.getElementById('1').innerText = arr3.join(', ');
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    </script>
+
+    <script> // Задача 2
+        let arr = [];        
+        function create() {
+            for (let index = 0; index < 10; index++) {
+                arr[index] = index;
+            }
+            document.getElementById('2').innerText = 'Массив: ' + arr.join(', ');
+        }
+
+        function fifth() {
+            document.getElementById('2').innerText = 'Пятый элемент массива: ' + arr[4];
+        }
+
+        function editfifth() {
+            arr[4] = 'Яблоко';
+            document.getElementById('2').innerText = 'Измененный: ' + arr.join(', ');
+        }
+    </script>
+
+    <script> // Задача 3
+        function arraylength() {
+            let arr = [1, 2, 3, 4, 5];
+            lengthbtn.setAttribute('title', 'Длина массива: ' + arr.length);
+            document.getElementById('3').innerText = 'Массив: ' + arr.join(', ');
+        }
+    </script>
+
+    <script> // Задача 4
+        function arrcycle() {
+            let arr = [];
+            var str = '';
+            for (let index = 0; index < 10; index++) {
+                arr[index] = index;
+                str = str + arr[index] + ' ';
+            }
+            document.getElementById('4').innerText = str;
+        }
+    </script>
+
+    <script> // Задача 5
+        function arrconcat() {
+            let arr1 = [1, 2, 3, 4, 5];
+            let arr2 = [6, 7, 8, 9, 10];
+            let arr3 = arr1.concat(arr2);
+            
+            document.getElementById('5').innerText = 'Первый: ' + arr1.join(', ') + '\nВторой: ' + arr2.join(', ') + '\nОбъедененный: ' + arr3.join(', ');
+
+            return arr3;
+        }
+    </script>
+
+    <script> // Задача 6
+        function arrpop(x) {
+            let arr = arrconcat();
+            var last = arr[arr.length - 1]
+            
+            switch (x) {
+                case 'out':                    
+                    document.getElementById('6').innerText = 'Массив: ' + arr.join(', ');
+                    document.getElementById('popbtn').removeAttribute('disabled');
+                    break;
+                
+                case 'pop':
+                    arr.pop();
+                    document.getElementById("6").innerText = 'Массив: ' + arr.join(', ') + ' был удален элемент: ' + last;
+                    break;
+            
+                default:
+                    arr.pop();
+                    document.getElementById("6").innerText = 'Массив: ' + arr.join(', ') + ' был удален элемент: ' + last;
+                    break;
+            }
+            return arr;
+        }
+    </script>
+
+    <script> // Задача 7
+        function arrunshift(x) {
+            let arr = arrpop();
+
+            switch (x) {
+                case 'out':
+                    document.getElementById('7').innerText = 'Массив: ' + arr.join(', ');
+                    document.getElementById('unshiftbtn').removeAttribute('disabled');
+                    break;
+                case 'unshift':
+                    arr.unshift('Яблоко')
+                    document.getElementById("7").innerText = 'Массив: ' + arr.join(', ') + ' был добавлен элемент: ' + arr[0];
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+    </script>
+
+    <script> // Задача 8 и Задача 9
+        function date(x) {
+            const date = new Date();
+
+            switch (x) {
+                case 'fulldate':
+                    alert(date);
+                    break;
+
+                case 'formatdate':
+                    const monthNames = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
+                    alert('Сегодня: ' + date.getDate() + ' ' + monthNames[date.getMonth()] + ' ' + date.getFullYear() + ' года');
+
+                default:
+                    break;
+            }
+        }
+    </script>
+
+    <script> // Задача 10
+        function rndm() {
+            var first = Math.floor(Math.random() * 50);
+            var second = Math.floor(Math.random() * 50);
+            var third = first*second;
+
+            document.getElementById('10').innerText = first + '*' + second + ' = ' + third;
+        }
+    </script>
+
+
+
+    <!-- Задача 1 -->
+    <h3>Задача 1</h3>
+    <p>Cоздать массив 3 разными способами</p>
+    <button onclick="array('first')">Первый способ</button>
+    <button onclick="array('second')">Второй способ</button>
+    <button onclick="array('third')">Третий способ</button> <p id="1"></p>
+    <hr>
+    <br>
+
+    <!-- Задача 2 -->
+    <h3>Задача 2</h3>
+    <p>Выведите на экран 5 член вашего массива затем измените его значение</p>
+    <button onclick="create()">Создать</button>
+    <button onclick="fifth()">Вывести</button>
+    <button onclick="editfifth()">Изменить</button> <p id="2"></p>
+    <hr>
+    <br>
+
+    <!-- Задача 3 -->
+    <h3>Задача 3</h3>
+    <p>Узнайте длину вашего массива и выведите ее значение при наведении на любой элемент</p>
+    <button onclick="arraylength()">Создать</button>
+    <button id="lengthbtn" title="Сначала создай массив" disabled>Наведись на меня</button> <p id="3"></p>
+    <hr>
+    <br>
+
+    <!-- Задача 4 -->
+    <h3>Задача 4</h3>
+    <p>Выведите все элементы массива, используя цикл for</p>
+    <button onclick="arrcycle()">Вывести</button> <p id="4"></p>
+    <hr>
+    <br>
+
+    <!-- Задача 5 -->
+    <h3>Задача 5</h3>
+    <p>Cоздайте 2 массива. Объедините их в один и выведите на экран полученный массив</p>
+    <button onclick="arrconcat()">Вывести</button> <p id="5"></p>
+    <hr>
+    <br>
+
+    <!-- Задача 6 -->
+    <h3>Задача 6</h3>
+    <p>Удалите последний член получившегося массива и выведите это значение на экран</p>
+    <button onclick="arrpop('out')">Массив</button> 
+    <button id="popbtn" onclick="arrpop('pop')" disabled>Убрать последний</button> <p id="6"></p>
+    <hr>
+    <br>
+
+    <!-- Задача 7 -->
+    <h3>Задача 7</h3>
+    <p>Добавьте новый элемент в начало вашего объединенного массива</p>
+    <button onclick="arrunshift('out')">Массив</button> 
+    <button id="unshiftbtn" onclick="arrunshift('unshift')" disabled>Добавить</button> <p id="7"></p>
+    <hr>
+    <br>
+
+    <!-- Задача 8 -->
+    <h3>Задача 8</h3>
+    <p>Получите сегодняшнюю дату и выведите ее на экран</p>
+    <button onclick="date('fulldate')">Дата</button> 
+    <hr>
+    <br>
+
+    <!-- Задача 9 -->
+    <h3>Задача 9</h3>
+    <p>Выведите сегодняшнюю дату в формате 11 ноября 2020 года</p>
+    <button onclick="date('formatdate')">Дата</button> 
+    <hr>
+    <br>
+
+    <!-- Задача 10 -->
+    <h3>Задача 10</h3>
+    <p>Напишите функцию, подсчитывающую произведение двух случайных чисел в промежутке от нуля до 50</p>
+    <button onclick="rndm()">Посчитать</button> <p id="10"></p>
+    <hr>
+    <br>
+
+</body>
+</html>

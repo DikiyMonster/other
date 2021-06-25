@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">    
+        <div class="container-left">
+            <div class="box1">
+                <h1 class="h1-logo" id="callback-button"><a href="" id='datebtn'>JAVASCRIPT</a></h1>
+            </div>
+            <div class="box1">
+                <p id="logo-description">Ознакомительный сайт для начинающих</p>
+            </div>
+            <div class="box1">
+                <section class="text-content">
+                    <p>JavaScript — мультипарадигменный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Является реализацией спецификации ECMAScript (стандарт ECMA-262).
+
+JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений. Наиболее широкое применение находит в браузерах как язык сценариев для придания интерактивности веб-страницам.
+                    </p>
+                    <p>Основные архитектурные черты: динамическая типизация, слабая типизация, автоматическое управление памятью, прототипное программирование, функции как объекты первого класса.
+
+На JavaScript оказали влияние многие языки, при разработке была цель сделать язык похожим на Java. Языком JavaScript не владеет какая-либо компания или организация, что отличает его от ряда языков программирования, используемых в веб-разработке.</p>
+                    <p>JavaScript сам по себе довольно компактный, но очень гибкий. Разработчиками написано большое
+                        количество инструментов поверх основного языка JavaScript, которые разблокируют огромное
+                        количество дополнительных функций с очень небольшим усилием. К ним относятся:</p>
+                    <ul>
+                        <li>В 1992 году компания Nombas (впоследствии приобретённая Openwave[en]) начала разработку встраиваемого скриптового языка Cmm (Си-минус-минус), который, по замыслу разработчиков, должен был стать достаточно мощным, чтобы заменить макросы, сохраняя при этом схожесть с Си, чтобы разработчикам не составляло труда изучить его. Главным отличием от Си была работа с памятью. В новом языке всё управление памятью осуществлялось автоматически: не было необходимости создавать буфера, объявлять переменные, осуществлять преобразование типов. В остальном языки сильно походили друг на друга: в частности, Cmm поддерживал стандартные функции и операторы Си. Cmm был переименован в ScriptEase, поскольку исходное название звучало слишком негативно, а упоминание в нём Си «отпугивало» людей. На основе этого языка был создан проприетарный продукт CEnvi. В конце ноября 1995 года Nombas разработала версию CEnvi, внедряемую в веб-страницы. Страницы, которые можно было изменять с помощью скриптового языка, получили название Espresso Pages — они демонстрировали использование скриптового языка для создания игры, проверки пользовательского ввода в формы и создания анимации. Espresso Pages позиционировались как демоверсия, призванная помочь представить, что случится, если в браузер будет внедрён язык Cmm. Работали они только в 16-битовом Netscape Navigator под управлением Windows.
+						</li>     
+                    </ul>
+                    <p></p>
+                    <p></p>
+                </section>
+            </div>
+        </div>
+
+        <div class="container-right">
+            <a href="../p1/index.html" target="_blank">
+                <div class="demo-box">Практическая 1</div>
+            </a>
+            <a href="../p2/index.html" target="_blank">
+                <div class="demo-box">Практическая 2</div>
+            </a>
+            <a href="quiz.html" target="_blank">
+                <div class="demo-box">Тест</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="modal-1">
+        <div class="modal__content">
+            <button class="modal__close-button"><img src="close.svg" width="12" alt=""></button>
+            <!-- Контент модального окна -->
+            <h1 class="modal__title" id="modaltitle"><script>document.getElementById('modaltitle').innerText = localStorage.getItem('username');</script></h1>
+            <p class="modal__description" id="modaldescription"><script>document.getElementById('modaldescription').innerText = localStorage.getItem('date');</script></p>
+        </div>
+    </div>
+    <script>
+            const date = new Date();
+            const monthNames = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
+            const formatdate = 'Сегодня: ' + date.getDate() + ' ' + monthNames[date.getMonth()] + ' ' + date.getFullYear() + ' года';
+            console.log(formatdate);
+            localStorage.setItem('date', formatdate);
+
+            if (localStorage.getItem('username') == null) {
+
+                var def = 'Неизвестный';
+                var username = prompt('Как вас зовут?', '');
+
+                if (username === '' || username === ' ' || username === null)
+                    localStorage.setItem('username', def);
+                else
+                    localStorage.setItem('username', username);
+            
+                alert('Здравствуйте, ' + localStorage.getItem('username'));
+                document.getElementById('modaldescription').innerText = localStorage.getItem('date')
+                document.getElementById('modaltitle').innerText = localStorage.getItem('username');
+            }
+            if (localStorage.getItem('username') == null)
+                localStorage.setItem('username', def);
+    </script>
+
+    <script src="modal.js"></script>
+
+</body>
+
+</html>

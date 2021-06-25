@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script> // Задача 1
+        var a = "Переменная";
+        var b = 2;
+        var c = 13.5;
+
+        function type(x) {
+            if (typeof (x) == 'string') {
+                alert("Тип: строка");
+            } else if (typeof (x) == 'number') {
+                alert("Тип: число");
+            }
+        }
+
+        function Show(x) {
+            type(x);
+            document.getElementById('1').innerText = "Значение = " + x;
+            
+        }
+    </script>
+
+    <script> // Задача 2
+        function zodiac() {
+            var z = prompt("Ваш знак зодиака: ", '');
+
+            switch (z.toLowerCase()) {
+                case 'овен':
+                    alert("Ваш знак ОВЕН");
+                    break;
+
+                case 'телец':
+                    alert("Ваш знак ТЕЛЕЦ");
+                    break;
+
+                case 'близнецы':
+                    alert("Ваш знак БЛИЗНЕЦЫ");
+                    break;
+
+                case 'рак':
+                    alert("Ваш знак РАК");
+                    break;
+
+                case 'лев':
+                    alert("Ваш знак ЛЕВ");
+                    break;
+
+                case 'дева':
+                    alert("Ваш знак ДЕВА");
+                    break;
+
+                case 'весы':
+                    alert("Ваш знак ВЕСЫ");
+                    break;
+
+                case 'скопион':
+                    alert("Ваш знак СКОРПИОН");
+                    break;
+                    
+                case 'стрелец':
+                    alert("Ваш знак СТРЕЛЕЦ");
+                    break;
+
+                case 'козерог':
+                    alert("Ваш знак КОЗЕРОГ");
+                    break;
+
+                case 'водолей':
+                    alert("Ваш знак ВОДОЛЕЙ");
+                    break;    
+
+                default:
+                    alert("Вашего знака нет");
+
+                    break;
+            }
+        }
+    </script>
+
+    <script> // Задача 3
+        function cycles(x) {
+            document.getElementById('3').innerText = '';
+            if (x == 'for') {
+                for (let index = 1; index < 41; index++) {
+                    document.getElementById('3').innerText = document.getElementById('3').innerText + ' ' + index + ' ';
+                }
+            } else if (x == 'while') {
+                let index = 1;
+                while (index < 41) {
+                    document.getElementById('3').innerText = document.getElementById('3').innerText + ' ' + index + ' ';
+                    index++;
+                }
+            }
+            else if (x == 'do-while') {
+                let index = 1;
+                do {
+                    document.getElementById('3').innerText = document.getElementById('3').innerText + ' ' + index + ' ';
+                    index++;
+                } while (index < 41);
+            }
+        }
+    </script>
+
+    <script> // Задача 4
+        function repeat() {
+            while (true) {
+                alert('Сообщение');
+            }
+        }
+    </script>
+
+    <script> // Задача 5
+        function morethanfive() {
+            var res = prompt('Введите число больше 5', '');
+
+            if (res == null) {
+                return;
+            }
+            if (!isNaN(res) && res > 5)
+                alert('Поздравляю');
+            else {
+                while (true) {
+                    res=prompt('Вы ввели что-то не так', '');
+                    
+                    if (!isNaN(res) && res > 5) {
+                        alert('Поздравляю');
+                        return;
+                    }
+                    else if (res == null)
+                        return;
+                }
+            }
+        } 
+    </script>
+
+    <script> // Задача 6
+        function even() {
+            document.getElementById('6').innerText = '';
+            for (let index = 8; index < 21; index = index + 2)
+                document.getElementById('6').innerText = document.getElementById('6').innerText + ' ' + index + ' ';
+        }
+    </script>
+
+    <script> // Задача 7
+        function uneven() {
+            document.getElementById('7').innerText = '';
+            for (let index = 1; index < 8; index = index + 2)
+                if (index != 5)
+                    document.getElementById('7').innerText = document.getElementById('7').innerText + ' ' + index + ' ';
+        }
+    </script>
+
+    <!-- Задача 1 -->
+    <h3>Задача 1</h3>
+    <p>Cоздать переменную, узнать ее тип, добавить вывод на экран текста, в зависимости от значения (if else)</p>
+    <button onclick="Show(a)">a</button>
+    <button onclick="Show(b)">b</button>
+    <button onclick="Show(c)">c</button> <p id="1"></p>
+    <hr>
+    <br>
+
+    <!-- Задача 2 -->
+    <h3>Задача 2</h3>
+    <p>Запросить у пользователя знак зодиака, и в зависимости от ответа выдать всплывающее окно приветствия
+        (вместо знака зодиака, можно запросить другие данные,предполагающие несколько вариантов ответа) (switch)</p>
+    <button onclick="zodiac()">Promt</button>
+    <hr>
+    <br>
+
+    <!-- Задача 3 -->
+    <h3>Задача 3</h3>
+    <p>Вывести все числа от 1 до 40, с использованием 3-х разных циклов</p>
+    <button onclick="cycles('for')">Цикл for</button>
+    <button onclick="cycles('while')">Цикл while</button>
+    <button onclick="cycles('do-while')">Цикл do-while</button> <p id="3"></p>
+    <hr>
+    <br>
+
+    <!-- Задача 4 -->
+    <h3>Задача 4</h3>
+    <p>Создайте вирусную страницу с постоянно повторяющемся сообщением</p>
+    <button onclick="repeat()">Задача 4</button>
+    <hr>
+    <br>
+
+    <!-- Задача 5 -->
+    <h3>Задача 5</h3>
+    <p>Запросить у пользователя любое число больше 5, в случае правильного ответа выдать окошко с поздравлением, 
+        в случае неправильного ответа вывести повторное окно с вопросом (помните, что пользователь может нажать "отмена", помните о типах данных)</p>
+    <button onclick="morethanfive()">Задача 5</button>
+    <hr>
+    <br>
+
+    <!-- Задача 6 -->
+    <h3>Задача 6</h3>
+    <p>Выведите четные числа от 8 до 20</p>
+    <button onclick="even()">Задача 6</button> <p id="6"></p>
+    <hr>
+    <br>
+    
+    <!-- Задача 7 -->
+    <h3>Задача 7</h3>
+    <p>Выведите нечетные числа от 1 до 7, пропустив 5</p>
+    <button onclick="uneven()">Задача 7</button> <p id="7"></p>
+
+</body>
+
+</html>
