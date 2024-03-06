@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>Конвертер цветовых моделей</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Конвертер цветовых моделей</h1>
+  <form id="form">
+    <label for="image">Загрузить изображение:</label>
+    <input type="file" id="image" accept="image/*">
+    <br>
+    <label for="from-model">Исходная цветовая модель:</label>
+    <select id="from-model">
+      <option value="rgb">RGB</option>
+      <option value="cmyk">CMYK</option>
+      <option value="hsl">HSL</option>
+      <option value="lab">LAB</option>
+      <option value="hsv">HSV</option>
+      <option value="ycbcr">YCbCr</option>
+    </select>
+    <br>
+    <label for="to-model">Конечная цветовая модель:</label>
+    <select id="to-model">
+      <option value="rgb">RGB</option>
+      <option value="cmyk">CMYK</option>
+      <option value="hsl">HSL</option>
+      <option value="lab">LAB</option>
+      <option value="hsv">HSV</option>
+      <option value="ycbcr">YCbCr</option>
+    </select>
+    <br>
+    <input type="submit" value="Конвертировать">
+  </form>
+  <br>
+  <div id="result"></div>
+  <script src="script.js"></script>
+</body>
+</html>
